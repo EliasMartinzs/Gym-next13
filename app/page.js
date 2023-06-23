@@ -1,12 +1,16 @@
 import Center from "@/components/Center";
-import Image from "next/image";
-import Exercise from "./Execise/page";
+import Exercise from "./exercise/page";
+import SearchedExercises from "./exercise/[search]/page";
 
-export default function Home() {
+export default function Home({ searchParams }) {
+  const { query } = searchParams;
+  const { bodyPart } = searchParams;
+
   return (
     <>
       <Center />
       <Exercise />
+      <SearchedExercises query={query} bodyPart={bodyPart} />
     </>
   );
 }

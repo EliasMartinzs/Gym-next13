@@ -3,10 +3,11 @@ import { fetchBodyPart } from "@/utils";
 
 export default async function Exercise() {
   const bodyPart = await fetchBodyPart();
+  const body = ["all", ...bodyPart];
 
   return (
     <div className="w-full">
-      <BodyPartList bodyPart={bodyPart} />
+      <BodyPartList bodyPart={body} />
     </div>
   );
 }

@@ -13,3 +13,13 @@ export const fetchBodyPart = async () => {
 
   return data;
 };
+
+export const fetchExercises = async (url) => {
+  const response = await fetch(url, {
+    headers: headers,
+  });
+
+  const dataExercises = await response.json();
+
+  return dataExercises;
+};
