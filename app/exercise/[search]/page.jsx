@@ -1,4 +1,4 @@
-import ExercisesCard from "@/components/ExercisesCard";
+import Exercises from "@/components/Exercises";
 import { fetchExercises } from "@/utils";
 
 export default async function SearchedExercises({ query, bodyPart }) {
@@ -7,12 +7,14 @@ export default async function SearchedExercises({ query, bodyPart }) {
   );
 
   const exercisesBodyPart = await fetchExercises(
-    `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`
+    `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${
+      bodyPart || "chest"
+    }`
   );
 
   return (
     <div>
-      <ExercisesCard
+      <Exercises
         exercises={exercises}
         query={query}
         exercisesBodyPart={exercisesBodyPart}

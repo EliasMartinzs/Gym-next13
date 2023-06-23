@@ -1,6 +1,19 @@
+import { data } from "autoprefixer";
+
 const headers = {
   "X-RapidAPI-Key": "0264115b1emsh1b3249af6606378p1eb643jsn4d6042d81d36",
   "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+};
+
+export const fetchExerciseId = async (id) => {
+  const response = await fetch(
+    `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`,
+    { headers: headers }
+  );
+
+  const dataID = await response.json();
+
+  return dataID;
 };
 
 export const fetchBodyPart = async () => {
